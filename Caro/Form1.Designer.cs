@@ -120,6 +120,7 @@
             this.pctbMark.Location = new System.Drawing.Point(150, 12);
             this.pctbMark.Name = "pctbMark";
             this.pctbMark.Size = new System.Drawing.Size(100, 100);
+            this.pctbMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctbMark.TabIndex = 2;
             this.pctbMark.TabStop = false;
             // 
@@ -137,6 +138,7 @@
             this.txtPlayerName.ReadOnly = true;
             this.txtPlayerName.Size = new System.Drawing.Size(133, 20);
             this.txtPlayerName.TabIndex = 0;
+            this.txtPlayerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
