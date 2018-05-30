@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlChessBoard = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.pctbMark = new System.Windows.Forms.PictureBox();
             this.prcbCoolDown = new System.Windows.Forms.ProgressBar();
             this.txtPlayerName = new System.Windows.Forms.TextBox();
+            this.tmCoolDown = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctbAvatar)).BeginInit();
             this.panel3.SuspendLayout();
@@ -130,6 +132,7 @@
             this.prcbCoolDown.Name = "prcbCoolDown";
             this.prcbCoolDown.Size = new System.Drawing.Size(133, 23);
             this.prcbCoolDown.TabIndex = 1;
+            this.prcbCoolDown.Value = 50;
             // 
             // txtPlayerName
             // 
@@ -139,6 +142,10 @@
             this.txtPlayerName.Size = new System.Drawing.Size(133, 20);
             this.txtPlayerName.TabIndex = 0;
             this.txtPlayerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tmCoolDown
+            // 
+            this.tmCoolDown.Tick += new System.EventHandler(this.tmCoolDown_Tick);
             // 
             // Form1
             // 
@@ -172,6 +179,7 @@
         private System.Windows.Forms.Button btnLan;
         private System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer tmCoolDown;
     }
 }
 

@@ -93,7 +93,33 @@ namespace Caro
             {
                 matrix = value;
             }
-        }        
+        }
+
+        private event EventHandler playerMarked;
+        public event EventHandler PlayerMarked
+        {
+            add
+            {
+                playerMarked += value;
+            }
+            remove
+            {
+                playerMarked -= value;
+            }
+        }
+
+        private event EventHandler endedGame;
+        public event EventHandler EndedGame
+        {
+            add
+            {
+                endedGame += value;
+            }
+            remove
+            {
+                endedGame -= value;
+            }
+        }
         #endregion
 
         #region Initialize
@@ -116,6 +142,7 @@ namespace Caro
         #region Method
         public void DrawChessBoard()
         {
+            ChessBoard.Enabled = true;
             Matrix = new List<List<Button>>();
 
             for (int i = 0; i < Cons.CHESS_BOARD_HEIGHT; i++)
@@ -130,7 +157,7 @@ namespace Caro
                         Location = new Point(j * Cons.CHESS_WIDTH, i * Cons.CHESS_HEIGHT),
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Tag = i.ToString()
-                };  
+                    };  
                     btn.Click += Btn_Click;
 
                     ChessBoard.Controls.Add(btn);
@@ -147,10 +174,14 @@ namespace Caro
 
             Mark(btn);
             ChangePlayer();
-            if(isEndGame(btn))
+
+            if (playerMarked != null)
+                playerMarked(this, new EventArgs());
+
+            if (isEndGame(btn))
             {
                 EndGame();
-            }
+            }            
         }
 
         private bool isEndGame(Button btn)
@@ -274,9 +305,10 @@ namespace Caro
             return (countTop + countBottom) == 5;
         }
 
-        private void EndGame()
+        public void EndGame()
         {
-            MessageBox.Show("Game over!");
+            if (endedGame != null)
+                endedGame(this, new EventArgs());
         }
 
         private void Mark(Button btn)
