@@ -9,6 +9,7 @@ namespace Caro
 {
     public class Player
     {
+        #region Properties
         private string name; // Ctrl + R + E
         public string Name
         {
@@ -35,12 +36,15 @@ namespace Caro
             {
                 mark = value;
             }
-        }               
+        }
+        #endregion
 
+        #region Initialize
         public Player(string name, Image mark)
         {
             this.Name = name;
             this.Mark = mark;
         }
+        #endregion        
     }
 }
