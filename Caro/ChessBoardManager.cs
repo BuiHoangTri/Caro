@@ -131,11 +131,9 @@ namespace Caro
                 new Player ("HowKteam", Image.FromFile(Application.StartupPath + "\\Resources\\P1.png")) ,
                 new Player ("Education", Image.FromFile(Application.StartupPath + "\\Resources\\P2.png"))
             };
-            this.CurrentPlayer = 0;
+            
             this.PlayerName = playerName;
-            this.PlayerMark = mark;
-
-            ChangePlayer();
+            this.PlayerMark = mark;            
         }
         #endregion
 
@@ -143,6 +141,10 @@ namespace Caro
         public void DrawChessBoard()
         {
             ChessBoard.Enabled = true;
+            chessBoard.Controls.Clear();
+            this.CurrentPlayer = 0;
+            ChangePlayer();
+
             Matrix = new List<List<Button>>();
 
             for (int i = 0; i < Cons.CHESS_BOARD_HEIGHT; i++)
