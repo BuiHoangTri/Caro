@@ -56,14 +56,16 @@ namespace Caro
         private void EndGame()
         {
             tmCoolDown.Stop();
-            MessageBox.Show("Game over!");
             pnlChessBoard.Enabled = false;
+            undoToolStripMenuItem.Enabled = false;
+            MessageBox.Show("Game over!");            
         }
 
         private void NewGame()
         {
             prcbCoolDown.Value = 0;
             tmCoolDown.Stop();
+            undoToolStripMenuItem.Enabled = true;
             chessBoard.DrawChessBoard();            
         }
 
@@ -74,7 +76,7 @@ namespace Caro
 
         private void Undo()
         {
-
+            chessBoard.Undo();
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
