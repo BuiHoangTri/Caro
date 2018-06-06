@@ -113,6 +113,7 @@
             this.btnLan.TabIndex = 4;
             this.btnLan.Text = "LAN";
             this.btnLan.UseVisualStyleBackColor = true;
+            this.btnLan.Click += new System.EventHandler(this.btnLan_Click);
             // 
             // txtIP
             // 
@@ -212,6 +213,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctbAvatar)).EndInit();
             this.panel3.ResumeLayout(false);
